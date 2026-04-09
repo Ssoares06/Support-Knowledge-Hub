@@ -13,19 +13,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">
-      <i class="bi bi-journal-bookmark-fill me-2"></i>Support Knowledge Hub
+      <img src="logo.png" alt="Support Hub Logo">
+      Support Knowledge Hub
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link active" href="index.html">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="artigos.html">Base de Conhecimento</a></li>
         <li class="nav-item"><a class="nav-link" href="criar-artigo.html"><i class="bi bi-plus-circle me-1"></i>Novo Artigo</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="usuarioDropdown" role="button" data-bs-toggle="dropdown">
-            <i class="bi bi-person-circle"></i> Entrar
+            <i class="bi bi-person-circle me-1"></i>Entrar
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="perfil.html"><i class="bi bi-gear me-2"></i>Perfil</a></li>
@@ -38,41 +39,39 @@
   </div>
 </nav>
 
-<main class="container main-wrapper py-4">
-
-  <!-- Busca -->
-  <div class="row mb-5">
-    <div class="col-md-8 mx-auto text-center">
-      <h1 class="display-5 fw-bold text-dark mb-3">Como podemos ajudar?</h1>
-      <p class="lead text-muted mb-4">Busque soluções para problemas técnicos no GLPI, Colmeia e Infraestrutura.</p>
-      <form id="form-busca" class="d-flex justify-content-center">
-        <div class="input-group input-group-lg shadow-sm" style="max-width:600px">
-          <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
-          <input type="text" id="busca-input" class="form-control border-start-0"
-                 placeholder="Digite o erro, sistema ou termo…" required>
-          <button class="btn btn-primary px-4" type="submit">Buscar</button>
-        </div>
-      </form>
-    </div>
+<!-- Hero com busca -->
+<section class="hero">
+  <div class="container">
+    <h1><i class="bi bi-journal-bookmark-fill me-2"></i>Como podemos ajudar?</h1>
+    <p>Busque soluções para problemas técnicos no GLPI, Colmeia e Infraestrutura.</p>
+    <form id="form-busca">
+      <div class="search-box">
+        <input type="text" id="busca-input" placeholder="Digite o erro, sistema ou termo..." required>
+        <button type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
+      </div>
+    </form>
   </div>
+</section>
+
+<main class="page-container">
 
   <!-- Mais acessados -->
-  <h4 class="mb-3 fw-bold border-bottom pb-2">
-    <i class="bi bi-star-fill text-warning me-2"></i>Soluções Mais Acessadas
+  <h4 class="section-title">
+    <i class="bi bi-star-fill text-warning"></i>Soluções Mais Acessadas
   </h4>
-  <div class="row g-4 mb-5" id="acessados-container">
-    <div class="col-12 text-center py-4">
-      <div class="spinner-border text-primary"></div>
+  <div class="row g-3 mb-5" id="acessados-container">
+    <div class="col-12 loading-placeholder">
+      <div class="spinner-border"></div>
     </div>
   </div>
 
   <!-- Recentes -->
-  <h4 class="mb-3 fw-bold border-bottom pb-2">
-    <i class="bi bi-clock-history text-primary me-2"></i>Documentações Recentes
+  <h4 class="section-title">
+    <i class="bi bi-clock-history"></i>Documentações Recentes
   </h4>
-  <div class="row g-4 mb-5" id="recentes-container">
-    <div class="col-12 text-center py-4">
-      <div class="spinner-border text-primary"></div>
+  <div class="row g-3 mb-5" id="recentes-container">
+    <div class="col-12 loading-placeholder">
+      <div class="spinner-border"></div>
     </div>
   </div>
 
