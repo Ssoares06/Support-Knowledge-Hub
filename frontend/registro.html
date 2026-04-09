@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Support Knowledge Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex align-items-center min-vh-100">
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white text-center py-4">
+          <h3 class="mb-0">✨ Criar Nova Conta</h3>
+          <p class="mb-0 small opacity-75">Support Knowledge Hub</p>
+        </div>
+        <div class="card-body p-5">
+
+          <form id="registroForm">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome Completo</label>
+              <input type="text" class="form-control form-control-lg" id="nome"
+                     placeholder="João Silva" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" class="form-control form-control-lg" id="email"
+                     placeholder="seu@email.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" class="form-control form-control-lg" id="senha"
+                     placeholder="Mínimo 6 caracteres" required minlength="6">
+            </div>
+            <div class="mb-4">
+              <label for="confirmar" class="form-label">Confirmar Senha</label>
+              <input type="password" class="form-control form-control-lg" id="confirmar"
+                     placeholder="Repita a senha" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg w-100" id="btnRegistrar">
+              Criar Conta
+            </button>
+          </form>
+
+          <div id="alertaSucesso" class="alert alert-success d-none mt-3"></div>
+          <div id="alertaErro"    class="alert alert-danger  d-none mt-3"></div>
+
+          <hr class="my-4">
+          <p class="text-center mb-0">
+            Já tem conta? <a href="login.html" class="text-primary fw-bold">Fazer login</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.getElementById('registroForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nome      = document.getElementById('nome').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const senha     = document.getElementById('senha').value;
+    const confirmar = document.getElementById('confirmar').value;
+    const sucesso   = document.getElementById('alertaSucesso');
+    const erro      = document.getElementById('alertaErro');
+    const btn       = document.getElementById('btnRegistrar');
+
+    sucesso.classList.add('d-none');
+    erro.classList.add('d-none');
+
+    if (senha !== confirmar) {
+      erro.textContent = 'As senhas não coincidem.';
+      erro.classList.remove('d-none');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Criando…';
+
+    try {
+      await API.register({ nome, email, senha });
+      sucesso.textContent = 'Conta criada com sucesso! Redirecionando para o login…';
+      sucesso.classList.remove('d-none');
+      setTimeout(() => window.location.href = 'login.html', 2000);
+    } catch (err) {
+      erro.textContent = err.message || 'Erro ao criar conta.';
+      erro.classList.remove('d-none');
+      btn.disabled = false;
+      btn.textContent = 'Criar Conta';
+    }
+  });
+</script>
+</body>
+</html>

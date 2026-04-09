@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Variáveis de ambiente
+.env
+
+# Banco de dados local
+*.db
+*.sqlite
+*.sqlite3
+
+# Alembic
+alembic/versions/*.py
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (se houver ferramentas de build no futuro)
+node_modules/
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
