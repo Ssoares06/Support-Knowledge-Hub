@@ -6,7 +6,7 @@
 const API_BASE =
     window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:8000'
-        : '';   // mesmo domínio em produção (Render/Railway servindo frontend junto)
+        : 'https://support-hub-api-14z3.onrender.com';  // ← URL do Render
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
